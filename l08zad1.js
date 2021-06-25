@@ -23,16 +23,6 @@ const url2 = 'http://localhost/chartdata2.json'; ///< server app with JSON API
 //const url = 'http://' + window.location.hostname + '/nocache/chartdata.json'
 
 /**
-* @brief Generate random value.
-* @retval random number from range <-1, 1>
-*/
-function getRand() {
-	const maxVal =  1.0;
-	const minVal = -1.0;
-	return (maxVal-minVal)*Math.random() + minVal;
-}
-
-/**
 * @brief Add new value to next data point.
 * @param y New y-axis value 
 */
