@@ -1,0 +1,42 @@
+.chartcontainer {
+	width: 100%;
+}
+
+
+.setup_bar {
+	height: 40%;
+	margin-right: 5px;
+	margin-bottom: 5%;
+}
+
+#line1{
+	margin-top: 2%;
+}
+
+#line1 >div{
+	display: inline-block;	
+}
+
+#div2 {
+	float: right;
+}
+
+#line2{
+	margin-top: 2%;
+}
+
+#line2 > button {
+	display: inline-block;
+	margin-left: 5%;
+	width: 15vw;
+	height: 4vh;
+}
+
+.chartcontainer > h1{
+	text-align: center;
+}
+
+.chartcontainer >canvas{
+	margin-top: 2%;
+}
+

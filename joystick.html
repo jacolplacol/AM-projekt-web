@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- HTML file head: web page metadata -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>	
+	
+	<!-- Latest compiled and minified Bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+		
+		<link rel="stylesheet" type="text/css" href="css/joystick.css"/>
+		<script type="text/javascript" src="js/joystick.js"></script>
+	</head>
+
+	<!-- HTML file body: web page content -->
+	<body>
+
+        <h1>Joystick</h1>
+		
+			<div class="joystick">
+                <div id="line1">
+                    <div class="joyP" id="joyUP"></div>
+                </div>
+                <div id="line2">
+                    <div class="joyP" id="joyLEFT"></div>
+
+                    <div class="joyP" id="joyNONE"></div>
+
+                    <div class="joyP" id="joyRIGHT"></div>
+
+                </div>
+
+                <div id="line3">
+                    <div class="joyP" id="joyDOWN"></div>
+                </div>
+
+            </div>
+
+			<div class="buttons">
+				<p>
+                    <button type="button"  id="btnStart" 
+                         onclick="startTimer()">Start
+                    </button>
+                </p>
+
+                <p>
+                    <button type="button"  id="btnStop" 
+                    onclick="stopTimer()">Stop
+                    </button> 
+                </p>
+           
+			</div>
+        
+
+	</body>
+
+</html>
