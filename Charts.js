@@ -61,9 +61,7 @@ function getConfigDataFromServer() {
         success: function(responseJSON, status, xhr) {
             updateConfigValues(responseJSON);
         },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
-        },
+       
 
     }).done(function(html){
         createCharts()
@@ -151,9 +149,6 @@ function getDataRequest(dataURL){
             updatePlot();
 			
 
-        },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
         },
 
     });
