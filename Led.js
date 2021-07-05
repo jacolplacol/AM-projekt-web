@@ -27,6 +27,9 @@ function getConfigDataFromServer() {
         dataType: 'json',
         crossDomain: true,
         cache: false,
+	success: function(responseJSON, status, xhr) {
+        updateConfigValues(responseJSON);
+        },
     });
 
 }
