@@ -1,5 +1,5 @@
 var savedConfigData="/config.json";
-var joystickData="/joystick.json"; 
+var joystickData="/datajoystick123.json"; 
 var ip;
 var timer;
 var sampleTime;
@@ -23,9 +23,6 @@ function getConfigDataFromServer() {
         cache: false,
         success: function(responseJSON, status, xhr) {
             updateConfigValues(responseJSON);
-        },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
         },
 
     });
@@ -64,9 +61,6 @@ function updateConfigValues(responseJSON){
 			displayJoystick(responseJSON);
 
         },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
-        },
 
     });
 
@@ -92,7 +86,6 @@ function updateConfigValues(responseJSON){
     $('#joyLEFT').css("background-color", "LightGrey");
     $('#joyRIGHT').css("background-color", "LightGrey");
     $('#joyNONE').css("background-color", "LightGrey");
-    console.log("lolol");
 }
 
 
@@ -100,13 +93,13 @@ function displayJoystick(responseJSON){
 
     switch(responseJSON.Action){
 
-        case("pushed"):
+        case("pressed"):
 
-            $('#joyUP').css("background-color", "LightGrey");
-            $('#joyDOWN').css("background-color", "LightGrey");
-            $('#joyLEFT').css("background-color", "LightGrey");
-            $('#joyRIGHT').css("background-color", "LightGrey");
-            $('#joyNONE').css("background-color", "LightGrey");
+            $('#joyUP').css("background-color", "#E8E8E8");
+            $('#joyDOWN').css("background-color", "#E8E8E8");
+            $('#joyLEFT').css("background-color", "#E8E8E8");
+            $('#joyRIGHT').css("background-color", "#E8E8E8");
+            $('#joyNONE').css("background-color", "#E8E8E8");
 
             switch(responseJSON.Direction){
                 
@@ -130,17 +123,49 @@ function displayJoystick(responseJSON){
                     $('#joyNONE').css("background-color", "DarkGrey");
                 break;
 
+            }
+        break;
+        
+
+        case("held"):
+
+        $('#joyUP').css("background-color", "#E8E8E8");
+        $('#joyDOWN').css("background-color", "#E8E8E8");
+        $('#joyLEFT').css("background-color", "#E8E8E8");
+        $('#joyRIGHT').css("background-color", "#E8E8E8");
+        $('#joyNONE').css("background-color", "#E8E8E8");
+
+            switch(responseJSON.Direction){
+                
+                case("left"):
+                    $('#joyLEFT').css("background-color", "Grey");
+                break;
+
+                case("right"):
+                    $('#joyRIGHT').css("background-color", "Grey");
+                break;
+
+                case("up"):
+                    $('#joyUP').css("background-color", "Grey");
+                break;
+
+                case("down"):
+                    $('#joyDOWN').css("background-color", "Grey");
+                break;
+
+                case("middle"):
+                    $('#joyNONE').css("background-color", "Grey");
+                break;
 
             }
         break;
 
-
         case('released'):
-            $('#joyUP').css("background-color", "LightGrey");
-            $('#joyDOWN').css("background-color", "LightGrey");
-            $('#joyLEFT').css("background-color", "LightGrey");
-            $('#joyRIGHT').css("background-color", "LightGrey");
-            $('#joyNONE').css("background-color", "LightGrey");
+            $('#joyUP').css("background-color", "#E8E8E8");
+            $('#joyDOWN').css("background-color", "#E8E8E8");
+            $('#joyLEFT').css("background-color", "#E8E8E8");
+            $('#joyRIGHT').css("background-color", "#E8E8E8");
+            $('#joyNONE').css("background-color", "#E8E8E8");
 
         break;
 
