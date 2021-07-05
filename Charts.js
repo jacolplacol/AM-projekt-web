@@ -148,7 +148,7 @@ function getDataRequest(dataURL){
         async : true,
         success: function(responseJSON, status, xhr) {
             dataFromServer=responseJSON;
-            updateChart();
+            updatePlot();
 			
 
         },
@@ -176,7 +176,7 @@ function getData(){
  * @brief Updates data in table
  * @param
  */
-function updateChart(){
+function updatePlot(){
 
     if(tyData.length >= sampleQuantity)
     {
