@@ -1,6 +1,6 @@
 var ipFromBrowser;
 var savedConfigData="/config.json";
-var joystickDataURL="/joystick.json";
+
 var DataListURL="/datalist.json";
 
 var sampleTime;
@@ -42,9 +42,6 @@ function getConfigDataFromServer() {
         success: function(responseJSON, status, xhr) {
             updateConfigValues(responseJSON);
         },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
-        },
 
     }).done(function(html){
     updateTableConfig()
@@ -64,7 +61,6 @@ function updateConfigValues(responseJSON){
     sampleTime=responseJSON.sampleTime;
     sampleQuantity=responseJSON.sampleQuantity;
 
-    joystickDataURL="http://"+ip+joystickDataURL;
     DataListURL="http://"+ip+DataListURL;
 
 
@@ -112,9 +108,7 @@ function getDataRequest(dataURL,key){
             updateTable(responseJSON,key)
 
         },
-        error: function (ajaxContext) {
-            console.log("Error while getting data from server");
-        },
+        
 
     });
 
@@ -128,7 +122,6 @@ function getDataRequest(dataURL,key){
 function getData(){
 
 
-        getDataRequest(joystickDataURL,"joy");
         getDataRequest(DataListURL,"data");
 
 
@@ -176,10 +169,7 @@ function updateTable(data,key){
            
             break;
 
-        case "joy":
-            table.rows[indexJSON.direction].cells[1].innerHTML = data.Direction;
-            table.rows[indexJSON.direction].cells[2].innerHTML = data.Action;
-            break;
+        
 
         default:
             console.log("error: No data to update chosen")
@@ -203,10 +193,9 @@ function createTable(){
     data.push(["Roll", "---", 'degrees']);		indexJSON.roll=4;
     data.push(["Pitch", "---", 'degrees']);		indexJSON.pitch=5;
     data.push(["Yaw", "---", 'degrees']);		indexJSON.yaw=6;
-    data.push(["Joystick", "---", '[-]']);	    indexJSON.direction=7;
+   
    
 
-    //Create table element and format it
     var table = document.createElement('table');
     table.style.width = '100%';
     table.setAttribute('border', '1');
@@ -216,8 +205,6 @@ function createTable(){
 
     var columnsNumber = data[0].length;
 
-    //Add the header row.
-    //Insert row at the end of the current table
     var row = table.insertRow(-1);
 
     for (var i = 0; i < columnsNumber; i++) {
@@ -226,7 +213,6 @@ function createTable(){
         row.appendChild(headerCell);
     }
 
-    //Add the data rows.
     for (var i = 1; i < data.length; i++) {
         row = table.insertRow(-1);
         for (var j = 0; j < columnsNumber; j++) {
@@ -235,7 +221,6 @@ function createTable(){
         }
     }
 
-    //Set table in html file
     var container = document.getElementById('TableDiv');
     container.innerHTML = "";
     container.appendChild(table);
